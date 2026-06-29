@@ -27,7 +27,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://ai-app-frontend-production.up.railway.app",
+  }),
+);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/reg', regRouter);
