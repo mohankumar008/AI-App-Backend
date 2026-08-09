@@ -29,7 +29,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(
   cors({
-    origin: "https://ai-app-frontend-production.up.railway.app",
+    origin: [
+      "https://docaiapp.netlify.app",
+      "https://ai-app-frontend-production.up.railway.app",
+      "http://localhost:5173",
+    ],
   }),
 );
 app.use('/', indexRouter);
