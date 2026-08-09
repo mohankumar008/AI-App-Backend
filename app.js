@@ -30,16 +30,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-app.use(
-  cors({
-    origin: [
-      "https://docaiapp.netlify.app",
-      "https://ai-app-frontend-production.up.railway.app",
-      "http://localhost:5173",
-    ],
-  }),
-);
-app.options("*", cors());
+const corsOptions = {
+  origin: function (origin, callback) {
+    callback(null, true);
+  },
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
