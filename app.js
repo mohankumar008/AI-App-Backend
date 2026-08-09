@@ -11,6 +11,8 @@ var usersRouter = require('./routes/users');
 var regRouter = require('./routes/reg');
 var planregRouter = require('./routes/planreg');
 var saveloginRouter = require('./routes/savelogin');
+var groqRouter = require("./routes/groq");
+
 
 
 
@@ -27,6 +29,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+
 app.use(
   cors({
     origin: [
@@ -41,6 +44,7 @@ app.use('/users', usersRouter);
 app.use('/reg', regRouter);
 app.use('/planreg', planregRouter);
 app.use("/savelogin", saveloginRouter);
+app.use("/groq", groqRouter);
 
 
 
